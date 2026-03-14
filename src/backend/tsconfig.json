@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "nodenext",
+    "strict": true,
+    "outDir": "./@dist",
+    "rootDir": "./",
+    "skipLibCheck": true
+  },
+  "include": ["./**/*.cts"]
+}

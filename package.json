@@ -1,11 +1,22 @@
 {
   "name": "game",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch"
+    "dev": "vite",
+    "build": "vite build",
+    "make": "pnpm exec tsc -p ./scripts/tsconfig.json && node scripts/@dist/make.js",
+    "run": "node src/backend/@dist/main.cjs"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "esbuild": "^0.27.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "node": "^25.8.1"
   }
 }

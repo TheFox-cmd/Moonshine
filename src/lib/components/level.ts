@@ -1,7 +1,6 @@
-import { Tile } from "./tile";
-
-// Tile format: 
-export type TileInstance = { tileID: string; position: Position }
+import { Tile } from "./tile.js";
+import { Vec2 } from "../library/vector2d.js";
+import { TileInstance } from "./tile.js";
 
 // Edge format: [tileIdA, tileIdB, weight]  
 export type Edge = [string, string, number] 
@@ -20,7 +19,8 @@ export class Level {
   setupTiles(tileInstances: TileInstance[]): Map<string, Tile> {
     const tiles = new Map<string, Tile>()
     for (const tileInstance of tileInstances) {
-      const tile = new Tile(tileInstance.tileID, tileInstance.position)
+      const pos = Vec2.set(tileInstance.position.x, tileInstance.position.y)
+      const tile = new Tile(tileInstance.tileID, pos)
       tiles.set(tileInstance.tileID, tile)
     }
     return tiles
@@ -43,6 +43,10 @@ export class Level {
 
   getTile(tileID: string): Tile | undefined {
     return this.tiles.get(tileID)
+  }
+  
+  loadFromJSON(json: string): void {
+    // TODO: 
   }
 }
 
